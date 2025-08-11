@@ -13,3 +13,8 @@ uvicorn
 pydantic
 openai>=1.40
 python-dotenv
+ragas
+datasets
+transformers
+torch
+langchain-community

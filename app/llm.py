@@ -4,10 +4,10 @@ import os
 from typing import Tuple
 from openai import OpenAI, AzureOpenAI
 from dotenv import load_dotenv
+import mlflow
 
 # Load environment variables from .env file
 load_dotenv()
-
 
 def get_client_and_model() -> Tuple[object, str]:
     """

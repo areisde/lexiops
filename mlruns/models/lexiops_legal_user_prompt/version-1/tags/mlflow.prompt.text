@@ -1,0 +1,8 @@
+Question: {{question}}
+
+Context:
+{{context}}
+
+Instructions:
+- Use only the context above for your response.
+- Include [Article/Section] citations.
