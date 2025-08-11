@@ -11,3 +11,5 @@ numpy
 fastapi
 uvicorn
 pydantic
+openai>=1.40
+python-dotenv
