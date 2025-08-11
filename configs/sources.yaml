@@ -1,0 +1,9 @@
+sources:
+  - name: eu_ai_act_official
+    url: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689"
+    type: "pdf"
+    lang: "en"
+  - name: ch_fadp_lpd_official
+    url: "https://www.newsd.admin.ch/newsd/message/attachments/75580.pdf"
+    type: "pdf"
+    lang: "fr"

@@ -1,0 +1,13 @@
+mlflow
+requests
+beautifulsoup4
+readability-lxml
+tiktoken
+pdfminer.six
+regex
+faiss-cpu
+sentence-transformers
+numpy
+fastapi
+uvicorn
+pydantic
