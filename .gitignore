@@ -206,4 +206,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-data/
+data/chunks/*
+data/index/*
+data/snapshots/*
+data/raw/sha256
+data/snapshots/*
