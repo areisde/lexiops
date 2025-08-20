@@ -29,12 +29,9 @@ LexiOps is a modular legal agent designed to process legal documents, enabling e
 - Processing and querying legal documents related to the EU AI Act.
 - Building a foundation for future extensions to other legal domains.
 
-## Future Plans
-- Extend support to data laws in Switzerland and the EU.
+## Future Plans & Improvements
 - Implement LoRA for fine-tuning and training managed by MLFlow.
 - Integrate DVC for advanced data versioning.
-
-## Future Improvements
 - Enhanced data parsing and smarter chunking tailored for legal documents.
 - Development of a user-friendly interface.
 - Completion of MLflow integration for seamless evaluation, training, and version tracking.
