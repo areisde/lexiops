@@ -13,6 +13,11 @@ from typing import Union
 from sentence_transformers import SentenceTransformer
 import logging
 import numpy as np
+# Suppress logs from SentenceTransformer and related libraries
+logging.getLogger("transformers").setLevel(logging.WARNING)
+logging.getLogger("torch").setLevel(logging.WARNING)
+logging.getLogger("sentence_transformers").setLevel(logging.WARNING)
+logging.getLogger("faiss").setLevel(logging.WARNING)
 
 # Initialize the FastMCP server
 mcp = FastMCP("rag-server")
@@ -49,18 +54,39 @@ with open(mapping_path, "r") as f:
 
 @tool(parse_docstring=True)
 @mcp.tool()
-async def rag_search(query: str, k: int, filters: Union[dict, None] = None) -> str:
-    """Search the FAISS index and return top-k results.
+async def rag_search(query: str, k: int = 5, filters: dict | None = None, articles: list[str] | None = None):
+    """Search the versioned knowledge base via semantic retrieval. 
+    If the user mentions specific legal articles, 
+    provide them in the optional `articles` argument to narrow or prioritize results.
 
     Args:
-        query (str): The search query string.
-        k (int): The number of top results to return.
-        filters (Union[dict, None], optional): Additional filters for the search. Defaults to None.
+        query (str): The user’s query in natural language.
+        k (int): Top-K results to return (default 5).
+        filters (dict, optional): Extra filters (e.g., {"source": "eu_ai_act"}).
+        articles (list[str], optional): One or more article numbers explicitly
+            mentioned by the user.
 
     Returns:
-        str: A JSON string containing the search results, including hits, snapshot ID, and retriever metadata.
+        str: JSON string with fields:
+            - snapshot_id (str)
+            - retriever (object: {k, rerank})
+            - hits (array of objects: {chunk_id, text, doc_sha, file_name, page, score})
+
+    Notes:
+        - When `articles` is provided, the tool prioritizes/filter results to those
+            articles (by precomputed article metadata when available, else by text match).
+        - The semantic query is always used; `articles` only narrows/prioritizes.
+        - Cap expanded article lists to a reasonable size (e.g., 50).
+        - Trigger on “article”, “articles”, “art.” (case-insensitive).
+        - Capture multi-digit numbers (e.g., "10", "101").
+        - Accept lists: “Articles 5, 7 and 10” → ["5","7","10"].
+        - Accept ranges: “Articles 5–7” / “5-7” / “5 to 7” → ["5","6","7"].
+        - If none are present, omit the `articles` argument.
+        - Examples: “What does Article 10 require?” → articles=["10"];
+          “Compare Articles 5 and 7” → ["5","7"]; “Summarize Articles 5–7” → ["5","6","7"].
     """
     try:
+        logging.info(f"rag_search called with query: {query}, k: {k}, filters: {filters}, articles: {articles}")
         # Embed query
         model = SentenceTransformer(embedding_model)
         query_vector = model.encode(query, normalize_embeddings=embedding_normalized)

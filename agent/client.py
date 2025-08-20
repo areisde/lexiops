@@ -3,6 +3,7 @@ from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langchain.chat_models import init_chat_model
+from langgraph.checkpoint.memory import InMemorySaver
 from .tools.rag.server import rag_search, rag_citations
 from .tools.tool_node import ToolNode
 from dotenv import load_dotenv
@@ -10,6 +11,9 @@ import logging
 import asyncio
 
 load_dotenv()
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
 
 # Initialize the chat model
 llm = init_chat_model("openai:gpt-4o")
@@ -65,26 +69,41 @@ graph_builder.add_edge("tools", "chatbot")
 graph_builder.add_edge(START, "chatbot")
 
 # Compile graph
-graph = graph_builder.compile()
+memory = InMemorySaver()
+graph = graph_builder.compile(checkpointer=memory)
 
 # Set up talking function
-def stream_graph_updates(user_input: str):
+def stream_graph_updates(user_input: str, config: dict):
+    logging.debug(f"stream_graph_updates called with user_input: {user_input}, config: {config}")
+
     async def async_stream():
-        async for event in graph.astream({"messages": [{"role": "user", "content": user_input}]}):
-            for value in event.values():
-                print("Assistant:", value["messages"][-1].content)
+        try:
+            async for event in graph.astream({"messages": [{"role": "user", "content": user_input}]}, config, stream_mode="values"):
+                for value in event.values():
+                    if isinstance(value, list):
+                        for message in value:
+                            logging.debug(f"Processing message: {message}")
+                            if hasattr(message, "pretty_print"):
+                                message.pretty_print()
+                            else:
+                                logging.warning(f"Message does not have pretty_print: {message}")
+                    else:
+                        logging.error(f"Unexpected value structure: {value}")
+        except Exception as e:
+            logging.error(f"Error in async_stream: {e}")
 
     asyncio.run(async_stream())
 
 
 if __name__ == "__main__":
+    config = {"configurable" : {"thread_id" : "1"}} # To be updated based on required thread
     while True:
         try:
             user_input = input("User: ")
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break
-            stream_graph_updates(user_input)
+            stream_graph_updates(user_input, config=config)
         except Exception as e:
             print("An error occurred:", e)
             break
