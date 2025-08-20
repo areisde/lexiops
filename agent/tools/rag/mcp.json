@@ -1,0 +1,12 @@
+{
+  "servers": [
+    {
+      "name": "RAG Server",
+      "transport": {
+        "type": "stdio",
+        "command": "python",
+        "args": ["agent/tools/rag_mcp/server.py"]
+      }
+    }
+  ]
+}

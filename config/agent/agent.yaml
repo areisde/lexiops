@@ -1,0 +1,15 @@
+model:
+  id: provider+model
+max_turns: 3
+tools:
+  enabled:
+    - rag.search
+    - rag.citations
+mcp:
+  servers:
+    - name: rag
+      cmd: python tools/rag_mcp/server.py
+      stdio: true
+observability:
+  request_id_header: "x-request-id"
+  log_jsonl: ./agent_logs/

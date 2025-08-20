@@ -1,0 +1,10 @@
+snapshot: "LATEST"
+retriever:
+  k: 5
+  rerank: none
+embedder: name/version
+paths:
+  chunks_parquet: chunks/chunks@{SNAPSHOT_ID}.parquet
+  faiss_index: index/{SNAPSHOT_ID}/faiss.index
+  mapping: index/{SNAPSHOT_ID}/mapping.jsonl
+  manifest: snapshots/{SNAPSHOT_ID}.json

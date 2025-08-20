@@ -4,3 +4,7 @@ pandas
 pyarrow
 sentence-transformers
 faiss-cpu
+mcp
+langgraph
+langsmith
+langchain[openai]
