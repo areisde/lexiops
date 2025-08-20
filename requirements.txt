@@ -8,3 +8,4 @@ mcp
 langgraph
 langsmith
 langchain[openai]
+langfuse

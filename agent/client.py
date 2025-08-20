@@ -4,16 +4,28 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langchain.chat_models import init_chat_model
 from langgraph.checkpoint.memory import InMemorySaver
+from langfuse import Langfuse
+from langfuse.langchain import CallbackHandler
 from .tools.rag.server import rag_search, rag_citations
 from .tools.tool_node import ToolNode
 from dotenv import load_dotenv
 import logging
 import asyncio
+import random
+import os
 
 load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
+
+langfuse = Langfuse(
+    public_key=os.environ["LANGFUSE_PUBLIC_KEY"],
+    secret_key=os.environ["LANGFUSE_SECRET_KEY"],
+    host=os.environ["LANGFUSE_HOST"],
+)
+langfuse_handler = CallbackHandler()
+
 
 # Initialize the chat model
 llm = init_chat_model("openai:gpt-4o")
@@ -73,7 +85,7 @@ memory = InMemorySaver()
 graph = graph_builder.compile(checkpointer=memory)
 
 # Set up talking function
-def stream_graph_updates(user_input: str, config: dict):
+def stream_graph_updates(user_input: str, config):
     logging.debug(f"stream_graph_updates called with user_input: {user_input}, config: {config}")
 
     async def async_stream():
@@ -96,7 +108,8 @@ def stream_graph_updates(user_input: str, config: dict):
 
 
 if __name__ == "__main__":
-    config = {"configurable" : {"thread_id" : "1"}} # To be updated based on required thread
+    config = {"configurable" : {"thread_id" : str(random.randint(1, 10000))},
+              "callbacks": [langfuse_handler]} # To be updated based on required thread
     while True:
         try:
             user_input = input("User: ")
