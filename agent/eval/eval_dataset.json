@@ -1,0 +1,1184 @@
+[
+  {
+    "inputs": {
+      "task": "On what date do Article 5 prohibitions start applying?"
+    },
+    "expectations": {
+      "answer": "2 Feb 2025",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "From when do general GPAI provider obligations apply?"
+    },
+    "expectations": {
+      "answer": "2 Aug 2025",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "When do most AI Act obligations (general application) start?"
+    },
+    "expectations": {
+      "answer": "2 Aug 2026",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "From when does Article 6(1) classification and linked obligations apply?"
+    },
+    "expectations": {
+      "answer": "2 Aug 2027",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "By what date were Codes of Practice initially expected to be ready?"
+    },
+    "expectations": {
+      "answer": "2 May 2025",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "What is the AI Act entry-into-force date?"
+    },
+    "expectations": {
+      "answer": "1 Aug 2024",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "When do governance provisions (EU/national authorities, notified bodies) start to apply?"
+    },
+    "expectations": {
+      "answer": "2 Aug 2025",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "When do penalties provisions begin to apply?"
+    },
+    "expectations": {
+      "answer": "2 Aug 2025",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are timelines staggered for prohibitions, governance, GPAI and general obligations?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Do legacy GPAI models have a later compliance horizon than 2025?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Do transparency obligations (Art.50) apply irrespective of high-risk status?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is Article 6(1) explicitly deferred to 36 months after entry-into-force?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must Member States operate at least one AI regulatory sandbox within 24 months of EIoF?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is there an annual review of prohibitions after they start to apply?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are some LE biometric-ID uses subject to earlier registration requirements?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is social scoring of natural persons permitted?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Can deployers use AI to exploit vulnerabilities due to age or disability?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are subliminal or manipulative techniques that materially distort behaviour allowed?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is untargeted scraping of facial images from the internet to build databases allowed?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are systems that profile to predict criminality risk from personality traits allowed?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are biometric categorisation systems inferring sensitive attributes allowed?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is real-time remote biometric identification in public by LE entirely banned with no exceptions?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Name one lawful exception for LE real-time biometric ID in public."
+    },
+    "expectations": {
+      "answer": "Targeted search for a specific missing victim",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Name a second lawful exception for LE real-time biometric ID in public."
+    },
+    "expectations": {
+      "answer": "Preventing a specific, substantial and imminent threat",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Name a third lawful exception for LE real-time biometric ID in public."
+    },
+    "expectations": {
+      "answer": "Locating or identifying a suspect of serious crimes listed in Annex II",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must LE complete a FRIA and register before real-time biometric ID in public?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Do prohibitions apply from the EIoF date?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Does consent legalise untargeted facial-image scraping?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "May schools use AI emotion recognition on pupils?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "May employers use AI emotion recognition on workers?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Does the prohibition include social scoring by public authorities?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are predictive policing tools that only use profiling data prohibited?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are systems inferring ethnicity via biometrics prohibited?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must users be informed when they interact with an AI system (unless obvious)?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must deployers inform subjects when using emotion recognition?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must deployers inform subjects when using biometric categorisation?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must AI-generated image/audio/video deepfakes be disclosed?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must AI-generated text informing the public on matters of public interest be disclosed?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are providers required to mark AI outputs in machine-readable form to enable detection?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is the marking obligation exempted for standard assistive editing that does not alter semantics?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Do transparency duties under Art.50 apply in addition to high‑risk requirements?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is there a law-enforcement exception to certain Art.50 disclosures?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must information under Art.50 be provided clearly at first interaction/exposure?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Can the Commission approve Codes of Practice for detection/labelling?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Does editorially controlled public‑interest text avoid the disclosure duty?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is biometric identification/categorisation listed as high-risk?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is AI used as a safety component in regulated products high-risk?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is education/admissions/grading AI high-risk?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is employment/CV screening/worker management AI high-risk?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is access to essential private services like credit scoring high-risk?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is life/health insurance risk assessment and pricing high-risk?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is migration/asylum/border control risk assessment high-risk?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is management/operation of critical infrastructure high-risk?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is a standard customer-support chatbot high-risk by default?"
+    },
+    "expectations": {
+      "answer": "No",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Can providers justify that an Annex III system is not high-risk if insignificant risk per Art.6(2)?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must high-risk providers complete a conformity assessment before market/use?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must high-risk systems carry CE marking and an EU Declaration of Conformity?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must high-risk providers register their system in the EU database before marketing/use?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is registration for Annex III point 2 systems done at national level?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are post‑market monitoring plans mandatory for high‑risk providers?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must serious incidents be reported by high‑risk providers?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are notified bodies designated to assess certain high‑risk systems?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must high‑risk systems include automatic logging?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are data governance and quality controls mandated for high‑risk systems?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must high‑risk systems ensure effective human oversight?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must deployers use high‑risk AI according to the instructions for use?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must deployers ensure human oversight during use of high‑risk AI?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must deployers keep logs generated by high‑risk AI under their control?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must deployers inform workers and representatives when high‑risk AI is used at work?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Who must conduct a FRIA before deploying certain Annex III systems?"
+    },
+    "expectations": {
+      "answer": "Public bodies and certain deployers in Annex III areas (e.g., credit, insurance)",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "When do FRIA obligations start to apply?"
+    },
+    "expectations": {
+      "answer": "2 Aug 2026",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Does FRIA apply to credit scoring of natural persons?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Does FRIA apply to life/health insurance risk assessment and pricing?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Before LE uses real‑time biometric ID in public, is FRIA required?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Should deployers monitor operation and suspend use if unacceptable risk emerges?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must deployers ensure data processing complies with GDPR/LED where applicable?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are enhanced human‑verification steps required for certain biometric ID matches?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Which EU body supervises GPAI at EU level?"
+    },
+    "expectations": {
+      "answer": "EU AI Office (European Commission)",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must GPAI providers publish a sufficiently detailed training data summary?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must GPAI providers have a copyright compliance policy (e.g., opt‑outs)?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Do GPAI models with systemic risk face extra evaluation and adversarial testing duties?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "What FLOPs threshold presumes systemic risk high‑impact capabilities?"
+    },
+    "expectations": {
+      "answer": "10^25 FLOPs",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Within how long must a provider notify the Commission after meeting the systemic‑risk condition?"
+    },
+    "expectations": {
+      "answer": "Within two weeks",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Can Codes of Practice be used to demonstrate GPAI compliance?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Do GPAI obligations apply from 2 Aug 2025?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Do open‑source GPAI models avoid Art.53 unless systemic risk applies?"
+    },
+    "expectations": {
+      "answer": "Generally yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Can the Commission set common rules if Codes of Practice are inadequate?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "May the Commission adjust the FLOPs threshold via delegated acts?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "What is the maximum fine for prohibited practices?"
+    },
+    "expectations": {
+      "answer": "€35,000,000 or 7% of global annual turnover (whichever is higher)",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Max fine for supplying incorrect, incomplete or misleading information?"
+    },
+    "expectations": {
+      "answer": "€7,500,000 or 1% of global annual turnover",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Do SMEs have lower absolute fine caps?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "From when do penalty provisions apply?"
+    },
+    "expectations": {
+      "answer": "2 Aug 2025",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Can GPAI‑specific breaches face separate fines under Art.101?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Who coordinates GPAI enforcement at EU level?"
+    },
+    "expectations": {
+      "answer": "EU AI Office",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are non‑EU providers within scope if they place or use systems affecting the EU?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Can failure to cooperate with authorities trigger fines?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Is there an EU database for (most) high‑risk AI systems?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Must providers register high‑risk Annex III systems in the EU database before market/use?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are certain law‑enforcement/migration high‑risk systems registered in a secure, non‑public section?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  },
+  {
+    "inputs": {
+      "task": "Are high‑risk systems in critical infrastructure registered at national level only?"
+    },
+    "expectations": {
+      "answer": "Yes",
+      "tool_calls": [
+        "rag_search",
+        "rag_citations"
+      ]
+    }
+  }
+]

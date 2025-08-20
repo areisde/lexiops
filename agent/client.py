@@ -5,6 +5,7 @@ from langgraph.graph.message import add_messages
 from langchain.chat_models import init_chat_model
 from langgraph.checkpoint.memory import InMemorySaver
 from langfuse import Langfuse
+import mlflow
 from langfuse.langchain import CallbackHandler
 from .tools.rag.server import rag_search, rag_citations
 from .tools.tool_node import ToolNode
@@ -25,6 +26,7 @@ langfuse = Langfuse(
     host=os.environ["LANGFUSE_HOST"],
 )
 langfuse_handler = CallbackHandler()
+mlflow.langchain.autolog()
 
 
 # Initialize the chat model
@@ -85,12 +87,17 @@ memory = InMemorySaver()
 graph = graph_builder.compile(checkpointer=memory)
 
 # Set up talking function
-def stream_graph_updates(user_input: str, config):
-    logging.debug(f"stream_graph_updates called with user_input: {user_input}, config: {config}")
-
+def stream_graph_updates(task: str, config = None):
     async def async_stream():
         try:
-            async for event in graph.astream({"messages": [{"role": "user", "content": user_input}]}, config, stream_mode="values"):
+            graph_ret = None
+            if config is not None:
+                graph_ret =  graph.astream({"messages": [{"role": "user", "content": task}]}, config, stream_mode="values")
+            else:
+                config_unique = {"configurable" : {"thread_id" : str(random.randint(1, 10000))},
+                    "callbacks": [langfuse_handler]} # To be updated based on required thread
+                graph_ret = graph.astream({"messages": [{"role": "user", "content": task}]}, config_unique, stream_mode="values")
+            async for event in graph_ret:
                 for value in event.values():
                     if isinstance(value, list):
                         for message in value:

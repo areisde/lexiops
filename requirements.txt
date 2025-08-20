@@ -9,3 +9,4 @@ langgraph
 langsmith
 langchain[openai]
 langfuse
+mlflow[databricks]>=3.1.0
