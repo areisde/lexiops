@@ -46,6 +46,9 @@ with open(LATEST_SNAPSHOT, "r") as f:
 embedding_model = latest_snapshot["embedder"]["name"]
 embedding_normalized = latest_snapshot["embedder"]["normalized"]
 
+# Initialize embedding model
+model = SentenceTransformer(embedding_model)
+
 # Load data
 chunks = pd.read_parquet(chunks_path)
 faiss_index = faiss.read_index(str(faiss_index_path))
@@ -54,7 +57,7 @@ with open(mapping_path, "r") as f:
 
 @tool(parse_docstring=True)
 @mcp.tool()
-async def rag_search(query: str, k: int = 5, filters: dict | None = None, articles: list[str] | None = None):
+def rag_search(query: str, k: int = 5, filters: dict | None = None, articles: list[str] | None = None):
     """Search the versioned knowledge base via semantic retrieval. 
     If the user mentions specific legal articles, 
     provide them in the optional `articles` argument to narrow or prioritize results.
@@ -88,7 +91,6 @@ async def rag_search(query: str, k: int = 5, filters: dict | None = None, articl
     try:
         logging.info(f"rag_search called with query: {query}, k: {k}, filters: {filters}, articles: {articles}")
         # Embed query
-        model = SentenceTransformer(embedding_model)
         query_vector = model.encode(query, normalize_embeddings=embedding_normalized)
 
         # Convert query vector to NumPy array
@@ -128,7 +130,7 @@ async def rag_search(query: str, k: int = 5, filters: dict | None = None, articl
 
 @tool(parse_docstring=True)
 @mcp.tool()
-async def rag_citations(chunk_ids: list) -> str:
+def rag_citations(chunk_ids: list) -> str:
     """Retrieve citation metadata for given chunk IDs.
 
     Args:

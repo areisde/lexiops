@@ -11,7 +11,6 @@ from .tools.rag.server import rag_search, rag_citations
 from .tools.tool_node import ToolNode
 from dotenv import load_dotenv
 import logging
-import asyncio
 import random
 import os
 
@@ -86,32 +85,13 @@ graph_builder.add_edge(START, "chatbot")
 memory = InMemorySaver()
 graph = graph_builder.compile(checkpointer=memory)
 
-# Set up talking function
-def stream_graph_updates(task: str, config = None):
-    async def async_stream():
-        try:
-            graph_ret = None
-            if config is not None:
-                graph_ret =  graph.astream({"messages": [{"role": "user", "content": task}]}, config, stream_mode="values")
-            else:
-                config_unique = {"configurable" : {"thread_id" : str(random.randint(1, 10000))},
-                    "callbacks": [langfuse_handler]} # To be updated based on required thread
-                graph_ret = graph.astream({"messages": [{"role": "user", "content": task}]}, config_unique, stream_mode="values")
-            async for event in graph_ret:
-                for value in event.values():
-                    if isinstance(value, list):
-                        for message in value:
-                            logging.debug(f"Processing message: {message}")
-                            if hasattr(message, "pretty_print"):
-                                message.pretty_print()
-                            else:
-                                logging.warning(f"Message does not have pretty_print: {message}")
-                    else:
-                        logging.error(f"Unexpected value structure: {value}")
-        except Exception as e:
-            logging.error(f"Error in async_stream: {e}")
-
-    asyncio.run(async_stream())
+def run_graph(task: str, config=None):
+    config_unique = config or {
+        "configurable": {"thread_id": str(random.randint(1, 10000))},
+        "callbacks": [langfuse_handler],
+    }
+    result = graph.invoke({"messages": [{"role": "user", "content": task}]}, config_unique)
+    return result["messages"][-1].content 
 
 
 if __name__ == "__main__":
@@ -123,7 +103,9 @@ if __name__ == "__main__":
             if user_input.lower() in ["quit", "exit", "q"]:
                 print("Goodbye!")
                 break
-            stream_graph_updates(user_input, config=config)
+            #stream_graph_updates(user_input, config=config)
+            response = run_graph(user_input, config=config)
+            print("Bot:", response)
         except Exception as e:
             print("An error occurred:", e)
             break

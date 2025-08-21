@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 import hashlib
 import os
@@ -169,6 +168,16 @@ def _get_last_fingerprint(root_dir: Path) -> Optional[str]:
     return None
 
 
+def get_git_commit_hash() -> str:
+    """Retrieve the current Git commit hash."""
+    try:
+        git_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL).decode("utf-8").strip()
+        return git_sha[:8]  # Use short hash
+    except Exception as e:
+        print(f"❌ Error retrieving Git commit hash: {e}")
+        return "no_git"
+
+
 def create_snapshot_id(fingerprint: str) -> str:
     """
     Create a unique snapshot identifier.
@@ -184,8 +193,8 @@ def create_snapshot_id(fingerprint: str) -> str:
     # Get current UTC timestamp
     utc_timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
     
-    # TODO : Get git commit hash
-    git_sha = "no_git"
+    # Get git commit hash
+    git_sha = get_git_commit_hash()
     
     # Create snapshot ID
     snapshot_id = f"SNAP_{utc_timestamp}_{git_sha}_{fingerprint[:8]}"

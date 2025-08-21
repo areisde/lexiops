@@ -10,7 +10,7 @@ class ToolNode:
     def __init__(self, tools: list) -> None:
         self.tools_by_name = {tool.name: tool for tool in tools}
 
-    async def __call__(self, inputs: dict):
+    def __call__(self, inputs: dict):
         if messages := inputs.get("messages", []):
             message = messages[-1]
         else:
@@ -23,8 +23,8 @@ class ToolNode:
         for tool_call in message.tool_calls:
             try:
                 # Check if the tool supports async invocation
-                if hasattr(self.tools_by_name[tool_call["name"]], "ainvoke"):
-                    tool_result = await self.tools_by_name[tool_call["name"]].ainvoke(
+                if hasattr(self.tools_by_name[tool_call["name"]], "invoke"):
+                    tool_result = self.tools_by_name[tool_call["name"]].invoke(
                         tool_call["args"]
                     )
                 else:

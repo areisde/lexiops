@@ -74,3 +74,13 @@ python -m agent.score
 Before running the project, ensure the following:
 - Create accounts on Databricks for MLflow, LangSmith, and LangGraph.
 - Configure all necessary credentials and settings in the `.env` file.
+
+## MLflow Evaluation Experiment
+
+The project now includes a fully configured MLflow evaluation experiment. Key features include:
+
+- **App Versioning**: Evaluation experiments are linked to app versions based on Git commit hashes, ensuring reproducibility.
+- **Model Parameters and Dataset Tracking**: Each evaluation run records the model parameters and dataset used, enabling exact reproduction of conditions for any recorded evaluation.
+- **Synchronous Setup**: All processes are set up synchronously to simplify execution and debugging.
+
+This setup ensures that every evaluation is traceable and reproducible, providing a strong foundation for model performance analysis and debugging.
