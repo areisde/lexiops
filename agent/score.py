@@ -18,12 +18,15 @@ from mlflow.genai.scorers import (
 import mlflow.genai
 from typing import Dict, Any, List
 import json
-from .client import stream_graph_updates as predict_fn
+from .run import stream_graph_updates as predict_fn
+from mlflow.utils.git_utils import get_git_commit
+from pathlib import Path
+import yaml
 
 
 # ===== EVAL DATASET =====
 with open("agent/eval/eval_dataset.json", "r") as f:
-    eval_dataset = json.load(f)[:20]
+    eval_dataset = json.load(f)[:3]
 
 # ===== LEGAL RAG SCORERS =====
 # Simple, clean evaluation using MLflow's built-in scorers
@@ -62,17 +65,44 @@ def evaluate_legal_rag_agent(data, predict_fn):
     Returns:
         MLflow evaluation results
     """
+    #mlflow.set_experiment("lexiops-eval")
+
+    git_commit = get_git_commit(".")
+    if git_commit:
+        git_commit = git_commit[:8]  # Use short hash
+    else:
+        git_commit = "local-dev"  # Fallback if not in git repo
+    
+    # Create version identifier
     app_name = "lexiops"
-    version_name = f"{app_name}-starter"
+    version_name = f"{app_name}-{git_commit}"
 
-    mlflow.set_active_model(name=version_name)
+    # Load current app version configs
+    config_root_dir = Path(__file__).resolve().parent.parent
+    CONFIG_PATH = config_root_dir / "config/agent/agent.yaml"
+    with open(CONFIG_PATH, "r") as f:
+        model_params = yaml.safe_load(f)
 
-    # Run evaluation
-    mlflow.genai.evaluate(
-        data=data,
-        predict_fn=predict_fn,
-        scorers=legal_rag_scorers,
-    )
+    # Set active model context - all traces will link to this version
+    model_params = {
+        "provider" : model_params["model"]["id"].split(":")[0],
+        "model" : model_params["model"]["id"].split(":")[1],
+        "tools" : model_params["tools"]["enabled"],
+    }
+
+    with mlflow.set_active_model(name=version_name) as active_model:
+        model_id = active_model.model_id
+        mlflow.log_model_params(model_id=model_id, params=model_params)
+
+        # Enable automatic tracing
+        mlflow.langchain.autolog()
+
+        # Run evaluation
+        mlflow.genai.evaluate(
+            data=data,
+            predict_fn=predict_fn,
+            scorers=legal_rag_scorers,
+        )
 
 if __name__ == "__main__":
     # Example usage
